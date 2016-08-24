@@ -1,0 +1,29 @@
+<ion-modal-view>
+    <ion-header-bar class="bar-dark">
+        <button class="button button-icon icon ion-plus" ng-click="saveTask()"></button>
+        <h1 class="title">Add Task</h1>
+        <button class="button button-icon icon ion-close" ng-click="taskmodal.hide()"></button>
+    </ion-header-bar>
+    <ion-content>
+        <div class="list">
+            <label class="item item-input item-floating-label">
+                <span class="input-label balanced">Task Details</span>
+                <textarea placeholder="Enter Task Detail..." rows="8" cols="10"></textarea>
+            </label>
+            <div class="item item-divider">
+            </div>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">First Name</span>
+                <input type="text" placeholder="First Name">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Last Name</span>
+                <input type="text" placeholder="Last Name">
+            </label>
+            <label class="item item-input item-floating-label">
+                <span class="input-label">Email</span>
+                <input type="text" placeholder="Email">
+            </label>
+        </div>
+    </ion-content>
+</ion-modal-view>

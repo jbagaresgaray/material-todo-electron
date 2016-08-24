@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title></title>
+    <!-- build:css lib/css/menu.min.css -->
+    <link href="assets/bower_components/ionic/release/css/ionic.css" rel="stylesheet">
+    <link href="assets/bower_components/ionic-toast/src/style.css" rel="stylesheet">
+    <link href="menu/css/style.css" rel="stylesheet">
+    <!-- endbuild -->
+    <!-- build:js lib/js/menu.min.js -->
+    <script src="assets/bower_components/moment/min/moment.min.js"></script>
+    <script src="assets/bower_components/lodash/dist/lodash.min.js"></script>
+    <!-- Angular Library -->
+    <script src="assets/bower_components/ionic/release/js/ionic.bundle.js"></script>
+    <script src="assets/bower_components/ionic-toast/src/ionic-toast.js"></script>
+    <script src="assets/bower_components/angular-cookies/angular-cookies.min.js"></script>
+    <script src="assets/bower_components/ngstorage/ngStorage.min.js"></script>
+    <script src="assets/bower_components/angular-jwt/dist/angular-jwt.min.js"></script>
+    <script src="assets/bower_components/angular-resource/angular-resource.min.js"></script>
+    <script src="assets/bower_components/restangular/dist/restangular.min.js"></script>
+    <script src="assets/bower_components/satellizer/satellizer.min.js"></script>
+    <!-- endbuild -->
+    <!-- build:js1 js/menu.min.js -->
+    <!-- App JS -->
+    <script src="menu/js/app.js"></script>
+    <script src="menu/js/controllers/controller.js"></script>
+    <script src="menu/js/controllers/tasks.controller.js"></script>
+    <script src="menu/js/controllers/projects.controller.js"></script>
+    <script src="menu/js/controllers/profile.controller.js"></script>
+    <script src="menu/js/controllers/login.controller.js"></script>
+    <!-- SERVICES -->
+    <script src="menu/js/services/api.services.js"></script>
+    <script src="menu/js/services/auth.service.js"></script>
+    <script src="menu/js/services/token.service.js"></script>
+    <script src="menu/js/services/user.service.js"></script>
+    <script src="menu/js/services/interceptor.service.js"></script>
+    <!-- DIRECTIVES -->
+    <script src="menu/js/directives.js"></script>
+    <!-- endbuild -->
+</head>
+
+<body ng-app="youproductiveApp" class="platform-android">
+    <div class="speech-bubble">
+    </div>
+    <ion-nav-bar class="bar-youproductive">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+    </ion-nav-bar>
+    <ion-nav-view></ion-nav-view>
+</body>
+
+</html>

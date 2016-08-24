@@ -1,0 +1,54 @@
+<div>
+    <!-- HOME -->
+    <div class="login-block-holder" ng-init="vm.onLoad()">
+        <!-- SPLASH -->
+        <!-- <div class="loader" ng-show="vm.preload">
+            <div class="dot"></div>
+            <div class="dot"></div>
+            <div class="dot"></div>
+        </div> -->
+        <div class='container' ng-show="vm.preload">
+            <div class='loader'>
+                <div class='loader--dot'></div>
+                <div class='loader--dot'></div>
+                <div class='loader--dot'></div>
+                <div class='loader--dot'></div>
+                <div class='loader--dot'></div>
+                <div class='loader--dot'></div>
+                <div class='loader--text'></div>
+            </div>
+        </div>
+        <div class="login-box-container" ng-hide="vm.preload">
+            <div class="inner-login-box">
+                <div class="login-logo-holder">
+                    <img src="./assets/images/logo.jpg" />
+                </div>
+                <br clear="all" />
+                <div class="login-box-container">
+                    <div class="login-box">
+                        <div class="lb-items">
+                            <form name="form" role="form">
+                                <div class="form-group">
+                                    <button ui-sref="login" class="login-btn">Login</button>
+                                    <md-input-container class="md-block md-subhead" flex="auto">
+                                        <a class="btn btn-block btn-lg btn-social btn-facebook" ng-click="vm.authenticate('facebook')">
+                                            <i class="fa fa-facebook"></i> Sign in with Facebook
+                                        </a>
+                                    </md-input-container>
+                                    <md-input-container class="md-block md-subhead" flex="auto">
+                                        <a class="btn btn-block btn-lg btn-social btn-twitter" ng-click="vm.authenticate('twitter')">
+                                            <i class="fa fa-twitter"></i> Sign in with Twitter
+                                        </a>
+                                    </md-input-container>
+                                    <div class="login-signup">
+                                        <span>or Skip and </span> <a ng-click="vm.skipApp()" href="">Use the app</a>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,94 @@
+(function() {
+    'use strict';
+
+    angular.module('youproductiveApp')
+        .factory('Api2Service', Api2Service);
+
+    Api2Service.$inject = ['CONFIG', '$resource', '$rootScope'];
+    function Api2Service(CONFIG, $resource, $rootScope) {
+
+        var broadcast;
+        var r;
+        var service = {};
+        var methods = {
+            save: { method: 'POST' },
+            query: { method: 'GET', isArray: true },
+            get: { method: 'GET', isArray: false },
+            update: { method: 'PUT' },
+            destroy: { method: 'DELETE' }
+        };
+        var collection = {
+            tasks: CONFIG.APIHost + 'tasks/:id',
+            tags: CONFIG.APIHost + 'tags/:id',
+            tagsunions: CONFIG.APIHost + 'tagsunions/:id',
+            foldersunions: CONFIG.APIHost + 'foldersunions/:department/:id',
+            comments: CONFIG.APIHost + 'comments/:id',
+            files: CONFIG.APIHost + 'files/:department/:id',
+            notes: CONFIG.APIHost + 'notes/:id',
+            folders: CONFIG.APIHost + 'folders/:id'
+        };
+        var resource = {
+            tasks: $resource(collection.tasks, { id: '@id' }, methods),
+            tags: $resource(collection.tags, { id: '@id' }, methods),
+            tagsunions: $resource(collection.tagsunions, { id: '@id' }, methods),
+            foldersunions: $resource(collection.foldersunions, { department: '@department', id: '@id' }, methods),
+            comments: $resource(collection.comments, { id: '@id' }, methods),
+            files: $resource(collection.files, { department: '@department', id: '@id' }, methods),
+            notes: $resource(collection.notes, { id: '@id' }, methods),
+            folders: $resource(collection.folders, { id: '@id' }, methods)
+        };
+
+        service.save = save;
+        service.custom = custom;
+        service.list = list;
+        service.show = show;
+        service.destroy = destroy;
+
+        return service;
+
+        function save(route, data, type) {
+            r = route;
+            if (!!data.id) {
+                broadcast = r + '.update';
+                resource[route].update({ id: data.id }, data, onSuccess, onError);
+            } else {
+                if (type === 'subtasks')
+                    r = type;
+                broadcast = r + '.create';
+                resource[route].save(data, onSuccess, onError);
+            }
+        }
+
+        function custom(route, params) {
+            return resource[route].get({ department: params.department, id: params.id }).$promise;
+        }
+
+        function list(route) {
+            return resource[route].query().$promise;
+        }
+
+        function show(route, id) {
+            return resource[route].get({ id: id }).$promise;
+        }
+
+        function destroy(route, id) {
+            r = route;
+            broadcast = r + '.destroy';
+            resource[route].destroy({ id: id }, onSuccess, onError);
+        }
+
+        function onSuccess(data) {
+            $rootScope.$broadcast(broadcast, data);
+        }
+
+        function onError(error) {
+            var response = {
+                error: error,
+                broadcast: broadcast
+            };
+            console.log('Error: ', angular.toJson(error));
+            $rootScope.$broadcast(r + '.error', response);
+        }
+    }
+
+})();

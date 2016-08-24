@@ -1,0 +1,46 @@
+<ion-view view-title="Tasks">
+    <div class="bar bar-subheader bar-youproductive item-input-inset">
+        <label class="item-input-wrapper">
+            <input type="text" ng-model="create_task.name" placeholder="What are you going to do next?">
+        </label>
+        <button class="button button-clear icon ion-compose" ng-click="createTask()"></button>
+    </div>
+    <div class="bar bar-subheader bar-youproductive item-input-inset">
+        <label class="item-icon-left item-icon-right">
+            <i class="icon {{activeTask.icon}}"></i> {{activeTask.name}}
+            <button class="button button-clear icon ion-ios-arrow-down" ng-click="gotoOther($event)"></button>
+        </label>
+    </div>
+    <ion-content class="has-subheader has-tabs-top">
+        <ion-refresher on-refresh="doRefresh()">
+        </ion-refresher>
+        <div ng-repeat="(group, tasks) in taskgroup track by $index" ng-show="group === activeTask.proper">
+            <div class="list card" ng-repeat="task in tasks | orderBy:'-created_at':true">
+                <div class="item item-body">
+                    <p>
+                        {{task.name}}
+                    </p>
+                    <!-- <p>
+                        <span class="subdued">November 05, 1955</span>
+                        <span class="subdued"> - </span>
+                        <span class="subdued">November 05, 1955</span>
+                    </p>
+                    <p>
+                        <a class="subdued">5 Comments</a>
+                    </p> -->
+                </div>
+                <div class="item tabs tabs-secondary tabs-icon-left">
+                    <a class="tab-item" href="">
+                        <i class="icon ion-android-star-outline"></i> Star this task
+                    </a>
+                    <a class="tab-item" href="">
+                        <i class="icon ion-calendar"></i> Set Date
+                    </a>
+                    <a class="tab-item" href="">
+                        <i class="icon ion-compose"></i> Edit
+                    </a>
+                </div>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

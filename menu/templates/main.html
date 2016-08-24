@@ -1,0 +1,30 @@
+<ion-view view-title="Login">
+    <ion-content>
+        <form name="form" ng-submit="login(user)">
+            <div class="list">
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Email</span>
+                    <input type="email" ng-model="user.email">
+                </label>
+                <label class="item item-input item-stacked-label">
+                    <span class="input-label">Password</span>
+                    <input type="password" ng-model="user.password">
+                </label>
+            </div>
+            <div class="padding">
+                <button type="submit" class="button button-block button-balanced">
+                    Login
+                </button>
+                <a class="button button-block button-positive">
+                    Sign in with Facebook
+                </a>
+                <a class="button button-block button-calm">
+                    Sign in with Twitter
+                </a>
+                <a class="button button-full button-outline button-balanced" ng-click="skipApp()">
+                    Skip and Use App
+                </a>
+            </div>
+        </form>
+    </ion-content>
+</ion-view>

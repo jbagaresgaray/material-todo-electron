@@ -1,0 +1,19 @@
+<ion-side-menus enable-menu-with-back-views="false">
+    <ion-side-menu-content>
+        <ion-nav-bar class="bar-youproductive" align-title="left">
+            <ion-nav-back-button>
+            </ion-nav-back-button>
+            <ion-nav-buttons side="left">
+                <button class="button button-icon button-clear ion-android-apps" ng-click="openApp($state)">
+                </button>
+            </ion-nav-buttons>
+            <ion-nav-buttons side="right">
+                <button class="button button-icon button-clear ion-android-settings light" ng-click="openPopoverSettings($event)">
+                </button>
+                <button class="button button-icon button-clear ion-android-more-vertical" ng-click="openPopover($event)">
+                </button>
+            </ion-nav-buttons>
+        </ion-nav-bar>
+        <ion-nav-view name="menuContent"></ion-nav-view>
+    </ion-side-menu-content>
+</ion-side-menus>

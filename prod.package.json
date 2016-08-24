@@ -1,0 +1,32 @@
+{
+    "name": "YouProductive",
+    "version": "0.0.11",
+    "description": "A minimal Electron application",
+    "main": "main.js",
+    "scripts": {
+        "start": "electron main.js",
+        "postinstall": "install-app-deps",
+        "pack": "asar pack . app.asar",
+        "dist": "cd src && npm install",
+        "build": "gulp clean && gulp dist",
+        "build-mac": "electron-packager ./src YouProductive --platform=darwin --arch=x64 --version=0.36.11 --asar=true --out=dist --overwrite=true --icon=./assets/icons/yp_ico.icns --ignore=node_modules/electron-prebuilt",
+        "build-win": "electron-packager ./src YouProductive --platform=win32 --arch=ia32 --version=0.36.11 --asar=true --out=dist --overwrite=true --icon=./assets/icons/yp_ico.ico",
+        "dist-mac": "gulp dist-mac"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://jbagaresgaray@bitbucket.org/firasalkhaffaf/youproductive-desktop.git"
+    },
+    "devDependencies": {
+        "electron-prebuilt": "^0.36.11",
+        "body-parser": "^1.15.0",
+        "cookie-parser": "^1.4.1",
+        "electron-notify": "^0.1.0",
+        "express": "^4.13.4",
+        "fs-extra": "^0.26.7",
+        "mkdirp": "^0.5.1",
+        "morgan": "^1.7.0",
+        "multer": "^1.1.0",
+        "node-notifier": "^4.5.0"
+    }
+}

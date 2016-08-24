@@ -1,0 +1,20 @@
+<ion-view view-title="Projects">
+    <div class="bar bar-subheader bar-stable item-input-inset">
+        <label class="item-input-wrapper">
+            <i class="icon ion-ios-search placeholder-icon"></i>
+            <input type="search" placeholder="Search">
+        </label>
+        <button class="button button-clear icon ion-ios-close-empty"></button>
+    </div>
+    <ion-content class="has-subheader">
+        <ion-refresher pulling-text="Pull to Refresh..." on-refresh="doRefresh()">
+        </ion-refresher>
+        <div class="list">
+            <!-- <a class="item item-thumbnail-left" href="">
+                <img src="assets/images/user-tom.jpg">
+                <h2>Pretty Hate Machine</h2>
+                <p>Nine Inch Nails</p>
+            </a> -->
+        </div>
+    </ion-content>
+</ion-view>
